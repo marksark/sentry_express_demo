@@ -88,7 +88,7 @@ app.post('/checkout', function (req, res) {
 
 app.get('/capture-message', function (req, res) {
     // Simulate an API call that takes a random amount
-    // of time and goes long
+    // of time and goes long, have sentry capture the message!
     let delay = 2500;
     Sentry.captureMessage('Custom Message');
     setTimeout(() => { res.send('Success'); }, delay);    
@@ -96,7 +96,7 @@ app.get('/capture-message', function (req, res) {
 
 app.get('/unhandled', function (req, res) {
     let obj = {};
-    obj.doesNotExist();
+    obj.alsoDoesNotExist();
 });
 
 app.get('/handled', function (req, res) {
